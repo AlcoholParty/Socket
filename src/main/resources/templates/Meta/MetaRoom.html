@@ -5,7 +5,8 @@
     <title>Title</title>
     <link rel="stylesheet" href="/css/ul.css">
     <script th:inline="javascript">
-        let err = [[${err}]]
+        let err = [[${err}]]; // 에러 메세지
+        // 에러 메세지가 있는 경우
         if (err != null) {
             alert(err);
             location.href = "/meta";
@@ -26,13 +27,17 @@
     </form>
 
     <div>
+        <!-- th:each="바인딩한 여러 객체들을 하나씩 꺼내 사용할 별칭 : ${바인딩한 여러 객체들의 통합 변수명}" - 바인딩한 여러 객체를 forEach문으로 하나씩 꺼내온다. -->
         <ul th:each="typeMeta : ${typeMetaList}">
+            <!-- th:if="${객체의 별칭.객체의 내부 변수명 == '변수의 데이터값'}" - 바인딩한 객체의 변수와 데이터값을 if문으로 비교한다. -->
             <li th:if="${typeMeta.metaType == 'studyRoom'}"><a th:href="@{/meta/studyroom(metaIdx=${typeMeta.metaIdx})}">(스터디)
                                                                                                                          [[${typeMeta.metaTitle}]]
                                                                                                                          ([[${typeMeta.metaRecruitingPersonnel}]] / [[${typeMeta.metaPersonnel}]])</a></li>
+            <!-- th:if="${객체의 별칭.객체의 내부 변수명 == '변수의 데이터값'}" - 바인딩한 객체의 변수와 데이터값을 if문으로 비교한다. -->
             <li th:if="${typeMeta.metaType == 'cafeRoom'}"><a th:href="@{/meta/caferoom(metaIdx=${typeMeta.metaIdx})}">(카페)
                                                                                                                        [[${typeMeta.metaTitle}]]
                                                                                                                        ([[${typeMeta.metaRecruitingPersonnel}]] / [[${typeMeta.metaPersonnel}]])</a></li>
+            <!-- th:if="${객체의 별칭.객체의 내부 변수명 == '변수의 데이터값'}" - 바인딩한 객체의 변수와 데이터값을 if문으로 비교한다. -->
             <li th:if="${typeMeta.metaType == 'oneRoom'}"><a th:href="@{/meta/oneroom(metaIdx=${typeMeta.metaIdx})}">(자습실)
                                                                                                                      [[${typeMeta.metaTitle}]]
                                                                                                                      ([[${typeMeta.metaRecruitingPersonnel}]] / [[${typeMeta.metaPersonnel}]])</a></li>
@@ -40,13 +45,17 @@
     </div>
 
     <div>
+        <!-- th:each="바인딩한 여러 객체들을 하나씩 꺼내 사용할 별칭 : ${바인딩한 여러 객체들의 통합 변수명}" - 바인딩한 여러 객체를 forEach문으로 하나씩 꺼내온다. -->
         <ul th:each="meta : ${metaList}">
+            <!-- th:if="${객체의 별칭.객체의 내부 변수명 == '변수의 데이터값'}" - 바인딩한 객체의 변수와 데이터값을 if문으로 비교한다. -->
             <li th:if="${meta.metaType == 'studyRoom'}"><a th:href="@{/meta/studyroom(metaIdx=${meta.metaIdx})}">(스터디)
                                                                                                                  [[${meta.metaTitle}]]
                                                                                                                  ([[${meta.metaRecruitingPersonnel}]] / [[${meta.metaPersonnel}]])</a></li>
+            <!-- th:if="${객체의 별칭.객체의 내부 변수명 == '변수의 데이터값'}" - 바인딩한 객체의 변수와 데이터값을 if문으로 비교한다. -->
             <li th:if="${meta.metaType == 'cafeRoom'}"><a th:href="@{/meta/caferoom(metaIdx=${meta.metaIdx})}">(카페)
                                                                                                                [[${meta.metaTitle}]]
                                                                                                                ([[${meta.metaRecruitingPersonnel}]] / [[${meta.metaPersonnel}]])</a></li>
+            <!-- th:if="${객체의 별칭.객체의 내부 변수명 == '변수의 데이터값'}" - 바인딩한 객체의 변수와 데이터값을 if문으로 비교한다. -->
             <li th:if="${meta.metaType == 'oneRoom'}"><a th:href="@{/meta/oneroom(metaIdx=${meta.metaIdx})}">(자습실)
                                                                                                              [[${meta.metaTitle}]]
                                                                                                              ([[${meta.metaRecruitingPersonnel}]] / [[${meta.metaPersonnel}]])</a></li>
